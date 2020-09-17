@@ -1,15 +1,17 @@
 # opendatasets
-A curated collection of datasets for data analysis &amp; machine learning, downloadable with a single Python command
+A curated collection of datasets for data analysis &amp; machine learning, downloadable with a single Python command.
+
+Try it out online: https://jovian.ml/aakashns/opendatasets-demo
 
 ## Installation & Usage
 
 Install the library using `pip`:
 
 ```
-pip install opendatasets
+pip install opendatasets --upgrade
 ```
 
-To use the library, just import it and use the
+To use the library, just import it and use the `download` function.
 
 ```
 import opendatasets as od
@@ -17,6 +19,7 @@ od.download('stackoverflow-developer-survey-2020')
 ```
 
 See the next section for a list of available dataset IDs.
+
 
 ## Datasets
 
