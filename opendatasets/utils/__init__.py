@@ -12,7 +12,7 @@ def download_raw_files(dataset_id, data_dir, dry_run, files):
         download_url(full_url, data_dir, fname, dry_run=dry_run)
 
 
-def download_url(url, root, filename, md5=None, dry_run=False):
+def download_url(url, root, filename=None, md5=None, dry_run=False):
     """Download a file from a url and place it in root.
     Args:
         url (str): URL to download file from
