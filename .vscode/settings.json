@@ -1,3 +1,8 @@
 {
-    "python.pythonPath": "/Users/aakashns/miniconda3/envs/opendatasets/bin/python"
+    "python.pythonPath": "/Users/aakashns/miniconda3/envs/opendatasets/bin/python",
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "autopep8"
 }
