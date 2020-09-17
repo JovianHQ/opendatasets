@@ -34,7 +34,7 @@ def check_integrity(fpath, md5=None):
         return True
     return check_md5(fpath, md5)
 
-def download_url(url, root, filename, md5=None):
+def download_url(url, root, filename, md5=None, dry_run=False):
     """Download a file from a url and place it in root.
     Args:
         url (str): URL to download file from
@@ -57,10 +57,11 @@ def download_url(url, root, filename, md5=None):
     else:   # download the file
         try:
             print('Downloading ' + url + ' to ' + fpath)
-            urllib.request.urlretrieve(
-                url, fpath,
-                reporthook=gen_bar_updater()
-            )
+            if not dry_run:
+                urllib.request.urlretrieve(
+                    url, fpath,
+                    reporthook=gen_bar_updater()
+                )
         except (urllib.error.URLError, IOError) as e:  # type: ignore[attr-defined]
             if url[:5] == 'https':
                 url = url.replace('https:', 'http:')
@@ -73,5 +74,5 @@ def download_url(url, root, filename, md5=None):
             else:
                 raise e
         # check integrity of downloaded file
-        if not check_integrity(fpath, md5):
+        if not dry_run and not check_integrity(fpath, md5):
             raise RuntimeError("File not found or corrupted.")

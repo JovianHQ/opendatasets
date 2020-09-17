@@ -11,7 +11,5 @@ def download(dataset_id, data_dir, dry_run, **kwargs):
     base_url = GITHUB_RAW_BASE_URL + dataset_id + "/"
     for fname in FILES:
         full_url = base_url + fname
-        if dry_run:
-            print(full_url)
-        else:
-            download_url(full_url, data_dir, fname)
+        download_url(full_url, data_dir, fname, dry_run=dry_run)
+            
