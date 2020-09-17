@@ -4,7 +4,8 @@ from opendatasets._version import __version__
 
 def download(dataset_id, data_dir='.', dry_run=False, **kwargs):
     data_dir = os.path.join(data_dir, dataset_id)
-    os.makedirs(data_dir, exist_ok=True)
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir)
     dataset = importlib.import_module('opendatasets.datasets.' + dataset_id)
     if dry_run:
         print('This is a dry run. URLs will be displayed but the files will not be downloaded.')

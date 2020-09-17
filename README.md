@@ -45,7 +45,7 @@ This is an open source project and we welcome contributions.
 1. Clone the repository:
 
 ```
-git clone https://github.com/JovianML/jovian-py.git
+git clone https://github.com/JovianML/opendatasets.git
 ```
 
 2. Setup the Python environment for development

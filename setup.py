@@ -22,7 +22,7 @@ setuptools.setup(
     description="A curated collection of datasets for data analysis & machine learning, downloadable with a single Python command",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/jovianml/opendatasets",
+    url="https://github.com/JovianML/opendatasets",
     packages=setuptools.find_packages(),
     classifiers=(
         "Programming Language :: Python :: 3",

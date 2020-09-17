@@ -1,4 +1,3 @@
-from urllib.request import urlretrieve
 from opendatasets.utils import download_url, GITHUB_RAW_BASE_URL
 
 FILES = [

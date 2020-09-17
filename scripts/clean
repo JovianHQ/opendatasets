@@ -1,5 +1,5 @@
 #! /bin/bash
 
-trash ./jovian.egg-info
+trash ./opendatasets.egg-info
 trash ./dist
 trash ./build

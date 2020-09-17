@@ -4,6 +4,7 @@ from tqdm import tqdm
 
 GITHUB_RAW_BASE_URL = 'https://raw.githubusercontent.com/JovianML/opendatasets/master/data/'
 
+
 def gen_bar_updater():
     pbar = tqdm(total=None)
 
@@ -44,12 +45,18 @@ def download_url(url, root, filename, md5=None, dry_run=False):
     """
     import urllib
 
+    try:
+        urlretrieve = urllib.request.urlretrieve
+    except Exception:
+        urlretrieve = urllib.urlretrieve
+
     root = os.path.expanduser(root)
     if not filename:
         filename = os.path.basename(url)
     fpath = os.path.join(root, filename)
 
-    os.makedirs(root, exist_ok=True)
+    if not(os.path.exists(root)):
+        os.makedirs(root)
 
     # check if file is already present locally
     if check_integrity(fpath, md5):
@@ -58,7 +65,7 @@ def download_url(url, root, filename, md5=None, dry_run=False):
         try:
             print('Downloading ' + url + ' to ' + fpath)
             if not dry_run:
-                urllib.request.urlretrieve(
+                urlretrieve(
                     url, fpath,
                     reporthook=gen_bar_updater()
                 )
@@ -67,7 +74,7 @@ def download_url(url, root, filename, md5=None, dry_run=False):
                 url = url.replace('https:', 'http:')
                 print('Failed download. Trying https -> http instead.'
                       ' Downloading ' + url + ' to ' + fpath)
-                urllib.request.urlretrieve(
+                urlretrieve(
                     url, fpath,
                     reporthook=gen_bar_updater()
                 )
