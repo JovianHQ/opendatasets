@@ -43,17 +43,36 @@ See the next section for a list of available dataset IDs.
             <a href="https://github.com/owid/covid-19-data/tree/master/public/data">Our World in Data</a>
         </td>
     </tr>
-    
     <tr>
         <td><code>state-of-javascript-2016</code></td>
-        <td>State of Javascript Annual Survey</td>
+        <td>State of Javascript Annual Survey 2016</td>
         <td>
             <a href="https://www.kaggle.com/sachag/state-of-js-2019">StateOfJS</a>
         </td>
     </tr>
-    
-
+    <tr>
+        <td><code>state-of-javascript-2017</code></td>
+        <td>State of Javascript Annual Survey 2017</td>
+        <td>
+            <a href="https://www.kaggle.com/sachag/state-of-js-2019">StateOfJS</a>
+        </td>
+    </tr>
+    <tr>
+        <td><code>state-of-javascript-2018</code></td>
+        <td>State of Javascript Annual Survey 2018</td>
+        <td>
+            <a href="https://www.kaggle.com/sachag/state-of-js-2019">StateOfJS</a>
+        </td>
+    </tr>
+    <tr>
+        <td><code>state-of-javascript-2019</code></td>
+        <td>State of Javascript Annual Survey 2019</td>
+        <td>
+            <a href="https://www.kaggle.com/sachag/state-of-js-2019">StateOfJS</a>
+        </td>
+    </tr>
 </table>
+
 More datasets will be added soon..
 
 ## Contributing
