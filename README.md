@@ -1,4 +1,5 @@
 # opendatasets
+
 A curated collection of datasets for data analysis &amp; machine learning, downloadable with a single Python command.
 
 Try it out online: https://jovian.ml/aakashns/opendatasets-demo
@@ -19,7 +20,6 @@ od.download('stackoverflow-developer-survey-2020')
 ```
 
 See the next section for a list of available dataset IDs.
-
 
 ## Datasets
 
@@ -71,13 +71,20 @@ See the next section for a list of available dataset IDs.
             <a href="https://www.kaggle.com/sachag/state-of-js-2019">StateOfJS</a>
         </td>
     </tr>
+    <tr>
+        <td><code>countries-languages-spoken</code></td>
+        <td>Languages Spoken in Different Countries</td>
+        <td>
+            <a href="https://www.infoplease.com/world/countries/languages-spoken-in-each-country-of-the-world">Infoplease</a>
+        </td>
+    </tr>
 </table>
 
 More datasets will be added soon..
 
 ## Contributing
 
-This is an open source project and we welcome contributions. 
+This is an open source project and we welcome contributions.
 
 ### Local Development Setup
 
