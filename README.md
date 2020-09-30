@@ -1,4 +1,4 @@
-# opendatasets
+# opendatasets for everyone.
 
 `opendatasets` is a Python library for downloading datasets from online sources like [Kaggle](https://www.kaggle.com/datasets) and Google Drive using a simple Python command. 
 
