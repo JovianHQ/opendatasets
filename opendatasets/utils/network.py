@@ -1,5 +1,6 @@
 import os
 import urllib
+from urllib import request
 import re
 from tqdm import tqdm
 from opendatasets.utils.md5 import check_integrity
