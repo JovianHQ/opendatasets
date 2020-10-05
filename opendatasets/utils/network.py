@@ -6,13 +6,13 @@ from opendatasets.utils.md5 import check_integrity
 
 try:
     urlopen = urllib.request.urlopen
-except Exception:
+except AttributeError:
     # For Python 2.7
     urlopen = urllib.urlopen
 
 try:
     urlretrieve = urllib.request.urlretrieve
-except Exception:
+except AttributeError:
     # For Python 2.7
     urlretrieve = urllib.urlretrieve
 
