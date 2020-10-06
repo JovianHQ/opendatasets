@@ -1,18 +1,22 @@
 import os
-import urllib
+
 import re
 from tqdm import tqdm
 from opendatasets.utils.md5 import check_integrity
 
 try:
-    urlopen = urllib.request.urlopen
+    import urllib.request as request
+    urlopen = request.urlopen
 except Exception:
     # For Python 2.7
+    import urllib
     urlopen = urllib.urlopen
 
 try:
-    urlretrieve = urllib.request.urlretrieve
+    import urllib.request as request
+    urlretrieve = request.urlretrieve
 except Exception:
+    import urllib
     # For Python 2.7
     urlretrieve = urllib.urlretrieve
 
