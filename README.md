@@ -23,9 +23,9 @@ od.download('https://www.kaggle.com/tunguz/us-elections-dataset')
 
 ### Kaggle Credentials
 
-`opendatasets` uses the [Kaggle Official API](https://github.com/Kaggle/kaggle-api) for donwloading dataset from Kaggle. 
+`opendatasets` uses the [Kaggle Official API](https://github.com/Kaggle/kaggle-api) for donwloading dataset from Kaggle.  Follow these steps to find your API credentials:
 
-1. Sign in to  https://kaggle.com/ , the click on your profile picture on the top right and select "My Account" from the menu.
+1. Sign in to  [https://kaggle.com/](https://kaggle.com),  then click on your profile picture on the top right and select "My Account" from the menu.
 
 2. Scroll down to the "API" section and click "Create New API Token". This will download a file `kaggle.json` with the following contents:
 
