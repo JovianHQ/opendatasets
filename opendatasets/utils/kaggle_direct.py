@@ -16,7 +16,8 @@ def is_kaggle_url(url):
 def get_kaggle_dataset_id(dataset_id_or_url):
     parts = []
     if is_kaggle_url(dataset_id_or_url):
-        parts = dataset_id_or_url.split('kaggle.com/')[1].split('/')[:2]
+        parts = dataset_id_or_url.split('?')[0].split(
+            'kaggle.com/')[1].split('/')[:2]
     elif not is_url(dataset_id_or_url):
         parts = dataset_id_or_url.split('/')[:2]
     assert len(parts) == 2, 'Invalid Kaggle dataset URL or ID: ' + \
