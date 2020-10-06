@@ -21,6 +21,22 @@ dataset_url = 'https://www.kaggle.com/tunguz/us-elections-dataset'
 od.download('https://www.kaggle.com/tunguz/us-elections-dataset')
 ```
 
+### Kaggle Credentials
+
+`opendatasets` uses the [Kaggle Official API](https://github.com/Kaggle/kaggle-api) for donwloading dataset from Kaggle. 
+
+1. Sign in to  https://kaggle.com/ , the click on your profile picture on the top right and select "My Account" from the menu.
+
+2. Scroll down to the "API" section and click "Create New API Token". This will download a file `kaggle.json` with the following contents:
+
+```
+{"username":"YOUR_KAGGLE_USERNAME","key":"YOUR_KAGGLE_KEY"}
+```
+
+3. When you run `opendatsets.download`, you will be asked to enter your username & Kaggle API, which you can get from the file downloaded in step 2.
+
+Note that you need to download the `kaggle.json` file only once.
+
 ### Some interesting datasets
 
 You can find interesting datasets on Kaggle: https://www.kaggle.com/datasets
