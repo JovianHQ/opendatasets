@@ -4,6 +4,12 @@ import click
 
 
 def _get_kaggle_key():
+    if os.path.exists('./kaggle.json'):
+        with open('./kaggle.json', 'r') as f:
+            key = f.read()
+            if key:
+                return key
+
     user_input = click.prompt("Your Kaggle Key", hide_input=True)
     if user_input.startswith('{'):
         try:
