@@ -1,15 +1,10 @@
 import os
 from opendatasets.utils.kaggle_direct import get_kaggle_dataset_id, is_kaggle_url
 import click
+import json
 
 
 def _get_kaggle_key():
-    if os.path.exists('./kaggle.json'):
-        with open('./kaggle.json', 'r') as f:
-            key = f.read()
-            if key:
-                return key
-
     user_input = click.prompt("Your Kaggle Key", hide_input=True)
     if user_input.startswith('{'):
         try:
@@ -21,10 +16,25 @@ def _get_kaggle_key():
     return user_input
 
 
+def read_kaggle_creds():
+    try:
+        if os.path.exists('./kaggle.json'):
+            with open('./kaggle.json', 'r') as f:
+                key = f.read()
+                data = json.loads(key)
+                if 'username' in data and 'key' in data:
+                    os.environ['KAGGLE_USERNAME'] = data['username']
+                    os.environ['KAGGLE_KEY'] = data['key']
+                    return True
+    except Exception:
+        return False
+
+
 def download_kaggle_dataset(dataset_url, data_dir, force=False, dry_run=False):
-    print("Please provide your Kaggle credentials to download this dataset. Learn more: http://bit.ly/kaggle-creds")
-    os.environ['KAGGLE_USERNAME'] = click.prompt("Your Kaggle username")
-    os.environ['KAGGLE_KEY'] = _get_kaggle_key()
+    if not read_kaggle_creds():
+        print("Please provide your Kaggle credentials to download this dataset. Learn more: http://bit.ly/kaggle-creds")
+        os.environ['KAGGLE_USERNAME'] = click.prompt("Your Kaggle username")
+        os.environ['KAGGLE_KEY'] = _get_kaggle_key()
 
     dataset_id = get_kaggle_dataset_id(dataset_url)
     if not dry_run:
