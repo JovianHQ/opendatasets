@@ -45,8 +45,7 @@ def download_kaggle_dataset(dataset_url, data_dir, force=False, dry_run=False):
                 dataset_id.split('/')[1],
                 os.path.join(data_dir, dataset_id.split('/')[1]),
                 force=force,
-                quiet=False,
-                unzip=True)
+                quiet=False)
         else:
             api.dataset_download_files(
                 dataset_id,
