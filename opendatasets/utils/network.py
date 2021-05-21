@@ -1,8 +1,9 @@
 import os
-
+import cgi
 import re
 from tqdm import tqdm
 from opendatasets.utils.md5 import check_integrity
+import urllib
 
 try:
     import urllib.request as request
@@ -31,6 +32,10 @@ def download_url(url, root, filename=None, md5=None, force=False, dry_run=False)
         md5 (str, optional): MD5 checksum of the download. If None, do not check
     """
     root = os.path.expanduser(root)
+    if not filename:
+        remotefile = urlopen(url)
+        _, params = cgi.parse_header(remotefile.info().get('Content-Disposition', ''))
+        filename = params.get('filename')
     if not filename:
         filename = os.path.basename(url)
     fpath = os.path.join(root, filename)
@@ -90,3 +95,11 @@ URL_REGEX = re.compile(
 
 def is_url(url):
     return re.match(URL_REGEX, url) is not None
+
+
+def get_filename_cd(response):
+    cd = response.headers.get('content-disposition')
+    if not cd:
+        return None
+    _, params = cgi.parse_header(cd)
+    return params.get('filename')
