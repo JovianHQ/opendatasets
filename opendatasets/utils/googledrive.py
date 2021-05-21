@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 
 def download_google_drive(url, data_dir):
-    print('Downloading from Google Drive:', url, "(this may take a while)")
+    print('Downloading from Google Drive (may take a while):', url)
     file_id = _get_google_drive_file_id(url)
     fpath = download_file_from_google_drive(file_id, data_dir)
     if fpath and str(fpath.endswith('.zip')):
