@@ -32,20 +32,23 @@ def read_kaggle_creds():
 
 
 def download_kaggle_dataset(dataset_url, data_dir, force=False, dry_run=False):
+    dataset_id = get_kaggle_dataset_id(dataset_url)
+    id = dataset_id.split('/')[1] 
+    target_dir = os.path.join(data_dir, id)
+
     if not read_kaggle_creds():
         print("Please provide your Kaggle credentials to download this dataset. Learn more: http://bit.ly/kaggle-creds")
         os.environ['KAGGLE_USERNAME'] = click.prompt("Your Kaggle username")
         os.environ['KAGGLE_KEY'] = _get_kaggle_key()
 
-    dataset_id = get_kaggle_dataset_id(dataset_url)
+    if not force and os.path.exists(target_dir) and len(os.listdir(target_dir)) > 0:
+        print('Skipping, found downloaded files in "{}" (use force=True to force download)'.format(target_dir))
+        return 
+    
     if not dry_run:
         from kaggle import api
         api.authenticate()
         if dataset_id.split('/')[0] == 'c':
-            id = dataset_id.split('/')[1] 
-            target_dir = os.path.join(data_dir, id)
-            if not force and os.path.exists(target_dir) and len(os.listdir(target_dir)) > 0:
-                print('Skipping, found downloaded files in "{}" (use force=True to force download)')
             api.competition_download_files(
                 id,
                 target_dir,
@@ -58,15 +61,12 @@ def download_kaggle_dataset(dataset_url, data_dir, force=False, dry_run=False):
             except OSError as e:
                 print('Could not delete zip file, got' + str(e))
         else:
-            id = dataset_id.split('/')[1] 
-            target_dir = os.path.join(data_dir, id)
-            if not force and os.path.exists(target_dir) and len(os.listdir(target_dir)) > 0:
-                print('Skipping, found downloaded files in "{}" (use force=True to force download)')
             api.dataset_download_files(
                 id,
                 target_dir,
                 force=force,
                 quiet=False,
                 unzip=True)
+        
     else:
         print("This is a dry run, skipping..")
