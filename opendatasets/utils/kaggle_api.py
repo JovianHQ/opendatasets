@@ -1,5 +1,6 @@
 import os
 from opendatasets.utils.kaggle_direct import get_kaggle_dataset_id, is_kaggle_url
+from opendatasets.utils.archive import extract_archive
 import click
 import json
 
@@ -41,11 +42,19 @@ def download_kaggle_dataset(dataset_url, data_dir, force=False, dry_run=False):
         from kaggle import api
         api.authenticate()
         if dataset_id.split('/')[0] == 'c':
+            id = dataset_id.split('/')[1] 
+            target_dir = os.path.join(data_dir, id)
             api.competition_download_files(
-                dataset_id.split('/')[1],
-                os.path.join(data_dir, dataset_id.split('/')[1]),
+                id,
+                target_dir,
                 force=force,
                 quiet=False)
+            zip_fname = target_dir + '/' + id + '.zip'
+            extract_archive(zip_fname, target_dir)
+            try:
+                os.remove(zip_fname)
+            except OSError as e:
+                print('Could not delete zip file, got' + str(e))
         else:
             api.dataset_download_files(
                 dataset_id,
