@@ -189,8 +189,4 @@ pip install -r requirements.txt
 
 3. Open up the project in VS code and make your changes. Make sure to install the Python Extension for VS Code and select the `opendatasets` conda environment.
 
-### Adding Datasets
-
-TODO - more details will be added here later
-
-This package is developed and mainted by the [Jovian.ml](https://www.jovian.ml) team.
+This package is developed and maintained by the [Jovian](https://www.jovian.ai) team.
