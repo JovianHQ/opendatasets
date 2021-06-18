@@ -36,15 +36,15 @@ def download_kaggle_dataset(dataset_url, data_dir, force=False, dry_run=False):
     id = dataset_id.split('/')[1] 
     target_dir = os.path.join(data_dir, id)
 
+    if not force and os.path.exists(target_dir) and len(os.listdir(target_dir)) > 0:
+        print('Skipping, found downloaded files in "{}" (use force=True to force download)'.format(target_dir))
+        return 
+    
     if not read_kaggle_creds():
         print("Please provide your Kaggle credentials to download this dataset. Learn more: http://bit.ly/kaggle-creds")
         os.environ['KAGGLE_USERNAME'] = click.prompt("Your Kaggle username")
         os.environ['KAGGLE_KEY'] = _get_kaggle_key()
 
-    if not force and os.path.exists(target_dir) and len(os.listdir(target_dir)) > 0:
-        print('Skipping, found downloaded files in "{}" (use force=True to force download)'.format(target_dir))
-        return 
-    
     if not dry_run:
         from kaggle import api
         api.authenticate()
