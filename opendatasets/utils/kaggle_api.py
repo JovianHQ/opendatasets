@@ -44,6 +44,8 @@ def download_kaggle_dataset(dataset_url, data_dir, force=False, dry_run=False):
         if dataset_id.split('/')[0] == 'c':
             id = dataset_id.split('/')[1] 
             target_dir = os.path.join(data_dir, id)
+            if not force and os.path.exists(target_dir) and len(os.listdir(target_dir)) > 0:
+                print('Skipping, found downloaded files in "{}" (use force=True to force download)')
             api.competition_download_files(
                 id,
                 target_dir,
@@ -56,9 +58,13 @@ def download_kaggle_dataset(dataset_url, data_dir, force=False, dry_run=False):
             except OSError as e:
                 print('Could not delete zip file, got' + str(e))
         else:
+            id = dataset_id.split('/')[1] 
+            target_dir = os.path.join(data_dir, id)
+            if not force and os.path.exists(target_dir) and len(os.listdir(target_dir)) > 0:
+                print('Skipping, found downloaded files in "{}" (use force=True to force download)')
             api.dataset_download_files(
-                dataset_id,
-                os.path.join(data_dir, dataset_id.split('/')[1]),
+                id,
+                target_dir,
                 force=force,
                 quiet=False,
                 unzip=True)
