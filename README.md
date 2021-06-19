@@ -21,6 +21,8 @@ dataset_url = 'https://www.kaggle.com/tunguz/us-elections-dataset'
 od.download('https://www.kaggle.com/tunguz/us-elections-dataset')
 ```
 
+`dataset_url` can also point to a public Google Drive link or a raw file URL.
+
 ### Kaggle Credentials
 
 `opendatasets` uses the [Kaggle Official API](https://github.com/Kaggle/kaggle-api) for donwloading dataset from Kaggle.  Follow these steps to find your API credentials:
@@ -35,7 +37,7 @@ od.download('https://www.kaggle.com/tunguz/us-elections-dataset')
 
 3. When you run `opendatsets.download`, you will be asked to enter your username & Kaggle API, which you can get from the file downloaded in step 2.
 
-Note that you need to download the `kaggle.json` file only once.
+Note that you need to download the `kaggle.json` file only once. You can also place the `kaggle.json` file in the same directory as the Jupyter notebook, and the credentials will be read automatically.
 
 ### Some interesting datasets
 
@@ -187,8 +189,4 @@ pip install -r requirements.txt
 
 3. Open up the project in VS code and make your changes. Make sure to install the Python Extension for VS Code and select the `opendatasets` conda environment.
 
-### Adding Datasets
-
-TODO - more details will be added here later
-
-This package is developed and mainted by the [Jovian.ml](https://www.jovian.ml) team.
+This package is developed and maintained by the [Jovian](https://www.jovian.ai) team.
