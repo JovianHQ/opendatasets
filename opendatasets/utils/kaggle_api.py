@@ -62,7 +62,7 @@ def download_kaggle_dataset(dataset_url, data_dir, force=False, dry_run=False):
                 print('Could not delete zip file, got' + str(e))
         else:
             api.dataset_download_files(
-                id,
+                dataset_id,
                 target_dir,
                 force=force,
                 quiet=False,
