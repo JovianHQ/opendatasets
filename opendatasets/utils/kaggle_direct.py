@@ -15,6 +15,7 @@ def is_kaggle_url(url):
 
 def get_kaggle_dataset_id(dataset_id_or_url):
     parts = []
+    dataset_id_or_url = dataset_id_or_url.replace("/datasets/", "/")
     if is_kaggle_url(dataset_id_or_url):
         parts = dataset_id_or_url.split('?')[0].split(
             'kaggle.com/')[1].split('/')[:2]
