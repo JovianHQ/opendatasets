@@ -49,7 +49,7 @@ def download_kaggle_dataset(dataset_url, data_dir, force=False, dry_run=False):
     if not dry_run:
         from kaggle import api
         api.authenticate()
-        if dataset_id.split('/')[0] == 'competitions':
+        if dataset_id.split('/')[0] == 'competitions' or dataset_id.split('/')[0] == 'c':
             api.competition_download_files(
                 id,
                 target_dir,
