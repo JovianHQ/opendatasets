@@ -39,6 +39,8 @@ od.download('https://www.kaggle.com/tunguz/us-elections-dataset')
 
 Note that you need to download the `kaggle.json` file only once. You can also place the `kaggle.json` file in the same directory as the Jupyter notebook, and the credentials will be read automatically.
 
+**IMPORTANT NOTE**: If you're downloading a competition dataset, make sure to first accept the rules of the competition.
+
 ### Some interesting datasets
 
 You can find interesting datasets on Kaggle: https://www.kaggle.com/datasets
