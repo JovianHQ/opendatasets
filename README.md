@@ -1,7 +1,6 @@
 # opendatasets
 
-`opendatasets` is a Python library for downloading datasets from online sources like [Kaggle](https://www.kaggle.com/datasets) and Google Drive using a simple Python command. 
-
+`opendatasets` is a Python library for downloading datasets from online sources like [Kaggle](https://www.kaggle.com/datasets) and Google Drive using a simple Python command.
 
 ### Installation
 
@@ -25,7 +24,7 @@ od.download('https://www.kaggle.com/tunguz/us-elections-dataset')
 
 ### Kaggle Credentials
 
-`opendatasets` uses the [Kaggle Official API](https://github.com/Kaggle/kaggle-api) for donwloading dataset from Kaggle.  Follow these steps to find your API credentials:
+`opendatasets` uses the [Kaggle Official API](https://github.com/Kaggle/kaggle-api) for donwloading dataset from Kaggle. Follow these steps to find your API credentials:
 
 1. Go to [https://kaggle.com/me/account](https://kaggle.com/me/account) (sign in if required).
 
@@ -45,7 +44,7 @@ Note that you need to download the `kaggle.json` file only once. You can also pl
 
 You can find interesting datasets on Kaggle: https://www.kaggle.com/datasets
 
-*You can also create a new dataset on Kaggle by uploading a CSV file here: https://www.kaggle.com/datasets?new=true (make sure to keep your dataset public, otherwise it will not be downloadable)*
+_You can also create a new dataset on Kaggle by uploading a CSV file here: https://www.kaggle.com/datasets?new=true (make sure to keep your dataset public, otherwise it will not be downloadable)_
 
 - Video Games sales: https://www.kaggle.com/gregorut/videogamesales
 - World University Rankings: https://www.kaggle.com/mylesoneill/world-university-rankings
@@ -65,9 +64,9 @@ You can find interesting datasets on Kaggle: https://www.kaggle.com/datasets
 - US Unemployment Rate Data: https://www.kaggle.com/jayrav13/unemployment-by-county-us
 - India Road accident Data: https://community.data.gov.in/statistics-of-road-accidents-in-india/
 - Data Science Jobs Data:
-    - https://www.kaggle.com/sl6149/data-scientist-job-market-in-the-us
-    - https://www.kaggle.com/jonatancr/data-science-jobs-around-the-world
-    - https://www.kaggle.com/rkb0023/glassdoor-data-science-jobs
+  - https://www.kaggle.com/sl6149/data-scientist-job-market-in-the-us
+  - https://www.kaggle.com/jonatancr/data-science-jobs-around-the-world
+  - https://www.kaggle.com/rkb0023/glassdoor-data-science-jobs
 - Youtube Trending Videos: https://www.kaggle.com/datasnaek/youtube-new
 - Asteroid Dataset: https://www.kaggle.com/sakhawat18/asteroid-dataset
 - Solar flares Data: https://www.kaggle.com/khsamaha/solar-flares-rhessi
@@ -75,29 +74,27 @@ You can find interesting datasets on Kaggle: https://www.kaggle.com/datasets
 - Automobile Insurance: https://www.kaggle.com/aashishjhamtani/automobile-insurance
 - PUBG video game matches: https://www.kaggle.com/skihikingkevin/pubg-match-deaths
 - CounterStrike GO (video game)
-    - https://www.kaggle.com/mateusdmachado/csgo-professional-matches
-    - https://www.kaggle.com/skihikingkevin/csgo-matchmaking-damage
+  - https://www.kaggle.com/mateusdmachado/csgo-professional-matches
+  - https://www.kaggle.com/skihikingkevin/csgo-matchmaking-damage
 - Dota 2 (video game): https://www.kaggle.com/devinanzelmo/dota-2-matches
 - Cricket One-Day Internationals Data: https://www.kaggle.com/jaykay12/odi-cricket-matches-19712017
 - Cricket Indian Premier League Data: https://www.kaggle.com/nowke9/ipldata
 - Basketball (NCAA): https://www.kaggle.com/ncaa/ncaa-basketball
 - Basketball NBA Players Stats: https://www.kaggle.com/ncaa/ncaa-basketball
-- Football datasets: 
-    - https://www.kaggle.com/martj42/international-football-results-from-1872-to-2017
-    - https://www.kaggle.com/abecklas/fifa-world-cup
-    - https://www.kaggle.com/egadharmawan/uefa-champion-league-final-all-season-19552019
+- Football datasets:
+  - https://www.kaggle.com/martj42/international-football-results-from-1872-to-2017
+  - https://www.kaggle.com/abecklas/fifa-world-cup
+  - https://www.kaggle.com/egadharmawan/uefa-champion-league-final-all-season-19552019
 - Hotel Booking Demand: https://www.kaggle.com/jessemostipak/hotel-booking-demand
 - New York Airbnb listings: https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data
 
+Other sources to look for datasets:
 
-Other sources to look for datasets: 
 - [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.php)
 - [awesome-public-datasets](https://github.com/awesomedata/awesome-public-datasets)
 - [Google Dataset Search](https://datasetsearch.research.google.com)
 
-*If you use an external source other than Kaggle, you'll create a new dataset on Kaggle by uploading a CSV file here: https://www.kaggle.com/datasets?new=true (make sure to keep your dataset public, otherwise it will not be downloadable using `opendatasets`)*
-
-
+_If you use an external source other than Kaggle, you'll create a new dataset on Kaggle by uploading a CSV file here: https://www.kaggle.com/datasets?new=true (make sure to keep your dataset public, otherwise it will not be downloadable using `opendatasets`)_
 
 ## Curated Datasets
 
@@ -184,7 +181,7 @@ git clone https://github.com/JovianML/opendatasets.git
 2. Setup the Python environment for development
 
 ```
-conda create -n opendatasets python=3.5
+conda create -n opendatasets python=3.9
 conda activate opendatasets
 pip install -r requirements.txt
 ```
