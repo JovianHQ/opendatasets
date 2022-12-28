@@ -18,15 +18,19 @@ def _get_kaggle_key():
 
 
 def read_kaggle_creds():
+    path: str = None
     try:
         if os.path.exists('./kaggle.json'):
-            with open('./kaggle.json', 'r') as f:
-                key = f.read()
-                data = json.loads(key)
-                if 'username' in data and 'key' in data:
-                    os.environ['KAGGLE_USERNAME'] = data['username']
-                    os.environ['KAGGLE_KEY'] = data['key']
-                    return True
+            path = './kaggle.json'
+        elif os.path.exists('../root/.kaggle/kaggle.json'):
+            path = '../root/.kaggle/kaggle.json'
+        with open(path, 'r') as f:
+            key = f.read()
+            data = json.loads(key)
+            if 'username' in data and 'key' in data:
+                os.environ['KAGGLE_USERNAME'] = data['username']
+                os.environ['KAGGLE_KEY'] = data['key']
+                return True
     except Exception:
         return False
 
