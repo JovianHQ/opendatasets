@@ -1,11 +1,12 @@
-from opendatasets.utils.network import get_filename_cd
 import os
 import re
 import zipfile
-import cgi  
-from opendatasets.utils.md5 import check_integrity
 from urllib.parse import urlparse
+
 from tqdm import tqdm
+
+from opendatasets.utils.md5 import check_integrity
+from opendatasets.utils.network import get_filename_cd
 
 
 def download_google_drive(url, data_dir):
@@ -28,7 +29,8 @@ def download_google_drive(url, data_dir):
 
 
 def is_google_drive_url(url):
-    return url.startswith('https://drive.google.com') or url.startswith('http://drive.google.com') or url.startswith('drive.google.com')
+    return url.startswith('https://drive.google.com') or url.startswith('http://drive.google.com') \
+        or url.startswith('drive.google.com')
 
 
 def _get_google_drive_file_id(url):
@@ -42,6 +44,7 @@ def _get_google_drive_file_id(url):
         return None
 
     return match.group("id")
+
 
 def _quota_exceeded(response):
     return "Google Drive - Quota exceeded" in response.text
@@ -88,9 +91,9 @@ def download_file_from_google_drive(file_id, root, filename=None, md5=None):
 
         if _quota_exceeded(response):
             msg = (
-                "The daily quota of the file " + filename + " is exceeded and it " +
-                "can't be downloaded. This is a limitation of Google Drive " +
-                "and can only be overcome by trying again later."
+                    "The daily quota of the file " + filename + " is exceeded and it " +
+                    "can't be downloaded. This is a limitation of Google Drive " +
+                    "and can only be overcome by trying again later."
             )
             raise RuntimeError(msg)
 

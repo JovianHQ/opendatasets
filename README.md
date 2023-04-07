@@ -187,8 +187,12 @@ git clone https://github.com/JovianML/opendatasets.git
 conda create -n opendatasets python=3.5
 conda activate opendatasets
 pip install -r requirements.txt
+pip install -r requirements_dev.txt
 ```
 
 3. Open up the project in VS code and make your changes. Make sure to install the Python Extension for VS Code and select the `opendatasets` conda environment.
+
+### Testing
+
 
 This package is developed and maintained by the [Jovian](https://www.jovian.ai) team.

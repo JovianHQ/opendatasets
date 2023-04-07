@@ -1,9 +1,11 @@
 import importlib
+
+from opendatasets.utils.kaggle_direct import is_kaggle_url
 from opendatasets.utils.network import download_url, is_url
 from opendatasets.utils.googledrive import is_google_drive_url, download_google_drive
 import os
 from opendatasets._version import __version__
-from opendatasets.utils.kaggle_api import download_kaggle_dataset, is_kaggle_url
+from opendatasets.utils.kaggle_api import download_kaggle_dataset
 from opendatasets.utils.archive import extract_archive
 
 

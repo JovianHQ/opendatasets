@@ -1,33 +1,39 @@
-import os
 import cgi
+import os
 import re
+
 from tqdm import tqdm
+
 from opendatasets.utils.md5 import check_integrity
-import urllib
 
 try:
     import urllib.request as request
+
     urlopen = request.urlopen
 except Exception:
     # For Python 2.7
     import urllib
+
     urlopen = urllib.urlopen
 
 try:
     import urllib.request as request
+
     urlretrieve = request.urlretrieve
 except Exception:
     import urllib
+
     # For Python 2.7
     urlretrieve = urllib.urlretrieve
 
 
 def download_url(url, root, filename=None, md5=None, force=False, dry_run=False):
     """Download a file from a url and place it in root.
+
     Args:
         url (str): URL to download file from
         root (str): Directory to place downloaded file in
-        filename (str, optional): 
+        filename (str, optional): Name of the file
         Name to save the file under. If None, use the basename of the URL
         md5 (str, optional): MD5 checksum of the download. If None, do not check
     """
@@ -40,13 +46,13 @@ def download_url(url, root, filename=None, md5=None, force=False, dry_run=False)
         filename = os.path.basename(url)
     fpath = os.path.join(root, filename)
 
-    if not(os.path.exists(root)):
+    if not (os.path.exists(root)):
         os.makedirs(root)
 
     # check if file is already present locally
     if not force and check_integrity(fpath, md5):
         print('Using downloaded and verified file: ' + fpath)
-    else:   # download the file
+    else:  # download the file
         try:
             print('Downloading ' + url + ' to ' + fpath)
             if not dry_run:

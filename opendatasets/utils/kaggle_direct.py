@@ -22,7 +22,7 @@ def get_kaggle_dataset_id(dataset_id_or_url):
     elif not is_url(dataset_id_or_url):
         parts = dataset_id_or_url.split('/')[:2]
     assert len(parts) == 2, 'Invalid Kaggle dataset URL or ID: ' + \
-        dataset_id_or_url
+                            dataset_id_or_url
     return '/'.join(parts)
 
 
@@ -37,10 +37,8 @@ def get_kaggle_download_hash(dataset_id):
 def download_kaggle_dataset(dataset_url, data_dir='.', force=True, dry_run=False):
     dataset_id = get_kaggle_dataset_id(dataset_url)
     print('Kaggle dataset ID: ', dataset_id)
-    raw_dataset_url = ('https://www.kaggle.com/' +
-                       dataset_id +
-                       '/download?resource=download&downloadHash=' +
-                       get_kaggle_download_hash(dataset_id))
+    raw_dataset_url = (f'https://www.kaggle.com/{dataset_id}/download?resource'
+                       f'=download&downloadHash={get_kaggle_download_hash(dataset_id)}')
     folder_name = dataset_id.split('/')[-1]
     archive_name = folder_name + '.zip'
     download_url(raw_dataset_url, root=data_dir,
