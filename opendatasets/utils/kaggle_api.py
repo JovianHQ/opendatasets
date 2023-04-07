@@ -32,6 +32,8 @@ def read_kaggle_creds(credentials_file: Path | None = None) -> bool:
                     os.environ['KAGGLE_USERNAME'] = data['username']
                     os.environ['KAGGLE_KEY'] = data['key']
                     return True
+        else:
+            return False
     except Exception:
         return False
 

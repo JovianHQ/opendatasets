@@ -12,7 +12,7 @@ def test_read_kaggle_creds():
 
 def test_read_kaggle_creds_file_found():
     """Creates a local kaggle credential file and verifies that the credentials are loaded"""
-    credentials_file = Path(__file__).parent / 'kaggle.json'
+    credentials_file = Path(__file__).cwd() / 'kaggle.json'
     credentials_file.unlink(missing_ok=True)
 
     os.environ['KAGGLE_USERNAME'] = ''
