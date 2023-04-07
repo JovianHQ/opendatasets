@@ -1,10 +1,11 @@
+import json
 import os
 from pathlib import Path
 
-from opendatasets.utils.kaggle_direct import get_kaggle_dataset_id, is_kaggle_url
-from opendatasets.utils.archive import extract_archive
 import click
-import json
+
+from opendatasets.utils.archive import extract_archive
+from opendatasets.utils.kaggle_direct import get_kaggle_dataset_id
 
 
 def _get_kaggle_key():

@@ -30,6 +30,8 @@ def test_read_kaggle_creds_file_found():
     assert os.environ['KAGGLE_KEY'] == kaggle_data['key']
 
     credentials_file.unlink()
+
+
 def test_read_kaggle_creds_custom_credentials(fixtures_folder):
     credentials_file = fixtures_folder / 'kaggle.json'
 
