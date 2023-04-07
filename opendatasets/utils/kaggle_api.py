@@ -1,4 +1,6 @@
 import os
+from pathlib import Path
+
 from opendatasets.utils.kaggle_direct import get_kaggle_dataset_id, is_kaggle_url
 from opendatasets.utils.archive import extract_archive
 import click
@@ -17,10 +19,12 @@ def _get_kaggle_key():
     return user_input
 
 
-def read_kaggle_creds():
+def read_kaggle_creds(credentials_file: Path | None = None) -> bool:
     try:
-        if os.path.exists('./kaggle.json'):
-            with open('./kaggle.json', 'r') as f:
+        if credentials_file is None:
+            credentials_file = Path('./kaggle.json')
+        if credentials_file.exists():
+            with open(credentials_file, 'r') as f:
                 key = f.read()
                 data = json.loads(key)
                 if 'username' in data and 'key' in data:
