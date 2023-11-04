@@ -2,16 +2,16 @@ from opendatasets.utils.network import get_filename_cd
 import os
 import re
 import zipfile
-import cgi  
+import cgi
 from opendatasets.utils.md5 import check_integrity
 from urllib.parse import urlparse
 from tqdm import tqdm
 
 
-def download_google_drive(url, data_dir):
+def download_google_drive(url, data_dir, filename=None):
     print('Downloading from Google Drive (may take a while):', url)
     file_id = _get_google_drive_file_id(url)
-    fpath = download_file_from_google_drive(file_id, data_dir)
+    fpath = download_file_from_google_drive(file_id, data_dir, filename=filename)
     if fpath and str(fpath).endswith('.zip'):
         try:
             with zipfile.ZipFile(fpath) as z:
