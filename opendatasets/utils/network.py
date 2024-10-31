@@ -1,5 +1,5 @@
 import os
-import cgi
+import email
 import re
 from tqdm import tqdm
 from opendatasets.utils.md5 import check_integrity
@@ -34,7 +34,9 @@ def download_url(url, root, filename=None, md5=None, force=False, dry_run=False)
     root = os.path.expanduser(root)
     if not filename:
         remotefile = urlopen(url)
-        _, params = cgi.parse_header(remotefile.info().get('Content-Disposition', ''))
+        # Python 3.13 replacing cgi to email implementation
+        message = email.message_from_string(remotefile.info().as_string())
+        params = message.get_params(header='Content-Disposition', failobj=dict())
         filename = params.get('filename')
     if not filename:
         filename = os.path.basename(url)
