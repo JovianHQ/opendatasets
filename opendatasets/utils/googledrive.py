@@ -2,7 +2,6 @@ from opendatasets.utils.network import get_filename_cd
 import os
 import re
 import zipfile
-import cgi  
 from opendatasets.utils.md5 import check_integrity
 from urllib.parse import urlparse
 from tqdm import tqdm
