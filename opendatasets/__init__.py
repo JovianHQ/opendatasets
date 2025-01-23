@@ -10,7 +10,7 @@ from opendatasets.utils.archive import extract_archive
 def download(dataset_id_or_url, data_dir='.', force=False, dry_run=False, **kwargs):
     # Check for a Kaggle dataset URL
     if is_kaggle_url(dataset_id_or_url):
-        return download_kaggle_dataset(dataset_id_or_url, data_dir=data_dir, force=force, dry_run=dry_run)
+        return download_kaggle_dataset(dataset_id_or_url, data_dir=data_dir, force=force, dry_run=dry_run, **kwargs)
 
     # Check for Google Drive URL
     if is_google_drive_url(dataset_id_or_url):
