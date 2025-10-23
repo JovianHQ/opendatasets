@@ -18,7 +18,7 @@ Datasets can be downloaded within a Jupyter notebook or Python script using the 
 ```
 import opendatasets as od
 dataset_url = 'https://www.kaggle.com/tunguz/us-elections-dataset'
-od.download('https://www.kaggle.com/tunguz/us-elections-dataset')
+od.download(dataset_url)
 ```
 
 `dataset_url` can also point to a public Google Drive link or a raw file URL.
